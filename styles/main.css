@@ -61,13 +61,17 @@ body {
 
 .links-container .navbar-link:active {
 	color: rgb(233,50,117);
-	background-color: FFF;
+	background-color: #FFF;
 }
 
 
 .container {
 	margin: 0 auto;
-	max-width: 64em;
+	max-width: 64rem;
+}
+
+.container.narrow {
+	max-width: 56rem;
 }
 
 .clearfix::before, .clearfix::after {
