@@ -57,16 +57,17 @@ body.landing {
 }
 
 .point:hover {
-	-webkit-transition: color 1s ease-out;
-	-moz-transition: color 1s ease-out;
-	transition: color 1s ease-out;
-	color: rgb(233, 50, 173);
+	-webkit-transition: background-color 3s ease-out;
+	-moz-transition: background-color 3s ease-out;
+	transition: background-color 3s ease-out;
+	background-color: rgb(233, 50, 173);
+	cursor: pointer;
 }
 
 .ion-music-note:hover, .ion-radio-waves:hover, .ion-iphone:hover {
-	-webkit-transition: color 1s ease-out;
-	-moz-transition: color 1s ease-out;
-	transition: color 1s ease-out;
-	color: rgb(233, 50, 173);
+	-webkit-transition: color 0.5s ease-out;
+	-moz-transition: color 0.5s ease-out;
+	transition: color 0.5s ease-out;
+
 
 }
