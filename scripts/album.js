@@ -34,7 +34,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 	};
 
 	var onHover = function(event) {
-	var songNumberCell = $(this).find('.song-item-number')
+	var songNumberCell = $(this).find('.song-item-number');
 	var songNumber = parseInt(songNumberCell.attr('data-song-number'));
 
 		if (songNumber !== currentlyPlayingSongNumber) {
@@ -57,9 +57,9 @@ var createSongRow = function(songNumber, songName, songLength) {
 
 };
 
-var $albumTitle = $('album-view-title');
-var $albumArtist = $('album-view-artist');
-var $albumReleaseInfo = $('album-view-release-info');
+var $albumTitle = $('.album-view-title');
+var $albumArtist = $('.album-view-artist');
+var $albumReleaseInfo = $('.album-view-release-info');
 var $albumImage = $('.album-cover-art');
 var $albumSongList = $('.album-view-song-list');
 
