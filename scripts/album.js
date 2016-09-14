@@ -140,7 +140,7 @@ var nextSong = function() {
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist);
-    $('.main-controls .play-pause').html(playerBarPauseButton);
+    $playPause.html(playerBarPauseButton);
     
     var lastSongNumber = getLastSongNumber(currentSongIndex);
     var $nextSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
@@ -172,7 +172,7 @@ var previousSong = function() {
     $('.currently-playing .song-name').text(currentSongFromAlbum.title);
     $('.currently-playing .artist-name').text(currentAlbum.artist);
     $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.title);
-    $('.main-controls .play-pause').html(playerBarPauseButton);
+    $playPause.html(playerBarPauseButton);
     
     var lastSongNumber = getLastSongNumber(currentSongIndex);
     var $previousSongNumberCell = getSongNumberCell(currentlyPlayingSongNumber);
@@ -190,6 +190,19 @@ var updatePlayerBarSong = function() {
 	$('main-controls .play-pause').html(playerBarPauseButton);
 };
 
+	var togglePlayFromPlayerBar = function() {
+		if (currentSoundFile.isPaused()) {
+			$('.album-song-button').html(pauseButtonTemplate);
+			$playPause.html(playerBarPauseButton);
+			currentSoundFile.play();
+		} else {
+			$('.album-song-button').html(playButtonTemplate);
+			$playPause.html(playerBarPlayButton);
+			currentSoundFile.pause();
+		}
+
+	};
+
 var currentlyPlayingSongNumber = null;
 var currentSongFromAlbum = null;
 var currentAlbum = null;
@@ -198,13 +211,17 @@ var currentVolume = 80;
 
 var $previousButton = $('.main-controls .previous');
 var $nextButton = $('.main-controls .next');
+var $playPause = $('.main-controls .play-pause');
 
 
 // when the window is loaded, do this:
 $(document).ready(function() {
+
 	setCurrentAlbum(albumPicasso); // 1. load album picasso first.
 	$previousButton.click(previousSong);
 	$nextButton.click(nextSong);
+	$playPause.click(togglePlayFromPlayerBar);
+
 
 	var albums = [albumPicasso, albumMarconi, albumDuchamp];
 	var index = 1;
@@ -215,6 +232,7 @@ $(document).ready(function() {
 			index = 0; // load the first album again
 		}
 	});
+
 });
 
 
