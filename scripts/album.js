@@ -82,6 +82,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 			var $volumeThumb = $('.volume .thumb');
 			$volumeFill.width(currentVolume + '%');
 			$volumeThumb.css({left: currentVolume + '%'});
+			$('.main-controls .play-pause').html(playerBarPauseButton);
 			$(this).html(pauseButtonTemplate);
 				setSong(songNumber);
 				currentSoundFile.play();
